@@ -1,4 +1,4 @@
-# Blade
+# Casper
 
 Getting, setting and removing cookies with Next.js
 
