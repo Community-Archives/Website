@@ -4,9 +4,7 @@ module.exports = withPWA({
     crossOrigin: 'anonymous',
     crossOriginIsolated: false,
     images: {
-        domains: [
-            'cdn.discordapp.com'
-        ]
+        domains: ['cdn.discordapp.com']
     },
     pwa: {
         dest: 'public',
@@ -21,6 +19,6 @@ module.exports = withPWA({
                 destination: '',
                 permanent: true
             }
-        ]
+        ];
     }
-})
+});

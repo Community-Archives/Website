@@ -1,5 +1,5 @@
-import { serialize, parse } from "cookie";
-import { OptionsType, TmpCookiesObj, CookieValueTypes } from "./types";
+import { serialize, parse } from 'cookie';
+import { OptionsType, TmpCookiesObj, CookieValueTypes } from './types';
 
 const isClientSide = (): boolean => typeof window !== 'undefined';
 
@@ -7,14 +7,14 @@ const processValue = (value: string): CookieValueTypes => {
     if (value === 'true') return true;
     if (value === 'false') return false;
     if (value === 'undefined') return undefined;
-    if (value === 'null') return null;    
+    if (value === 'null') return null;
     return value;
 };
 
 const stringify = (value: string = '') => {
     try {
         const result = JSON.stringify(value);
-        return (/^[\{\[]/.test(result)) ? result : value;
+        return /^[\{\[]/.test(result) ? result : value;
     } catch (e) {
         return value;
     }
@@ -45,7 +45,7 @@ export const getCookies = (options?: OptionsType): TmpCookiesObj => {
 
         const _cookie = cookieParts.slice(1).join('=');
         const name = cookieParts[0];
-        
+
         _cookies[name] = _cookie;
     }
 
@@ -69,7 +69,7 @@ export const setCookies = (key: string, data: any, options?: OptionsType): void 
         _cookieOptions = _options;
     }
 
-    const cookieStr = serialize(key, stringify(data), { path: '/', ..._cookieOptions});
+    const cookieStr = serialize(key, stringify(data), { path: '/', ..._cookieOptions });
 
     if (!isClientSide()) {
         if (_res && _req) {
@@ -83,16 +83,16 @@ export const setCookies = (key: string, data: any, options?: OptionsType): void 
 
             if (_req && _req.cookies) {
                 const _cookies = _req.cookies;
-                data === '' ? delete _cookies[key] : _cookies[key] = stringify(data);
+                data === '' ? delete _cookies[key] : (_cookies[key] = stringify(data));
             }
 
             if (_req && _req.headers && _req.headers.cookie) {
                 const _cookies = parse(_req.headers.cookie);
 
-                data === '' ? delete _cookies[key] : _cookies[key] = stringify(data);
+                data === '' ? delete _cookies[key] : (_cookies[key] = stringify(data));
 
                 _req.headers.cookie = Object.entries(_cookies).reduce((accum, item) => {
-                    return accum.concat(`${item[0]}=${item[1]};`)
+                    return accum.concat(`${item[0]}=${item[1]};`);
                 }, '');
             }
         }
@@ -110,11 +110,4 @@ export const checkCookies = (key: string, options?: OptionsType): boolean => {
 
     const cookie = getCookies(options);
     return cookie.hasOwnProperty(key);
-}
-
-
-
-
-
-
-
+};
