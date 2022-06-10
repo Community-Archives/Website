@@ -35,7 +35,7 @@ getCookies(options); // => { 'name1': 'value1', name2: 'value2' }
 
 Check if a cookie exists:
 ```
-import { checkCookies } from 'cookies-next';
+import { checkCookies } from './client'
 
 checkCookies('name', options); // => true
 checkCookies('nothing', options); // => false
@@ -43,7 +43,7 @@ checkCookies('nothing', options); // => false
 
 Delete a cookie:
 ```
-import { removeCookies } from 'cookies-next';
+import { removeCookies } from './client';
 
 removeCookies(name, options);
 ```
@@ -52,7 +52,7 @@ removeCookies(name, options);
 you must pass the exact same path and domain attributes that were used to set the cookie:*
 
 ```
-import { removeCookies } from 'cookies-next';
+import { removeCookies } from './client';
 
 removeCookies(name, { path: '/path', domain: '.yourdomain.com' });
 ```
@@ -78,7 +78,7 @@ as the first argument to the function and when server side rendering, this funct
 #### Client Example
 
 ```
-import { getCookies, setCookies, removeCookies } from 'cookies-next';
+import { getCookies, setCookies, removeCookies } from './client';
 // we can use it anywhere
 getCookies();
 getCookie('key');
@@ -93,7 +93,7 @@ removeCookies('key');
 `/page/index.js`
 ```
 import React from 'react'
-import { getCookies, getCookie, setCookies, removeCookies } from 'cookies-next';
+import { getCookies, getCookie, setCookies, removeCookies } from './client';
 
 const Home = () => {
   return (
@@ -119,7 +119,7 @@ export default Home
 `/page/api/example.js`
 ```
 import type { NextApiRequest, NextApiResponse } from 'next'
-import  { getCookies, getCookie, setCookies, removeCookies } from 'cookies-next'
+import  { getCookies, getCookie, setCookies, removeCookies } from './client'
 
 export default async function handler(req, res) {
   setCookies('server-key', 'value', { req, res, maxAge: 60 * 60 * 24 });
