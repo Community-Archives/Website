@@ -12,7 +12,7 @@ Getting, setting and removing cookies with Next.js
 Create a cookie:
 
 ```
-import { setCookies } from 'cookies-next';
+import { setCookies } from './client';
 
 setCookies('key', 'value', options);
 ```
@@ -20,7 +20,7 @@ setCookies('key', 'value', options);
 Read a cookie:
 
 ```
-import { getCookie } from 'cookies-next';
+import { getCookie } from './client';
 
 getCookie('key', options); // => 'value'
 getCookie('nothing', options); // => undefined
@@ -28,7 +28,7 @@ getCookie('nothing', options); // => undefined
 
 Read all cookies:
 ```
-import { getCookies } from 'cookies-next';
+import { getCookies } from './client';
 
 getCookies(options); // => { 'name1': 'value1', name2: 'value2' }
 ```
