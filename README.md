@@ -3,6 +3,9 @@
   <br> 
   Community Archives
 </h2>
+
+[![Prettier](https://github.com/Community-Archives/Website/actions/workflows/prettier.yml/badge.svg)](https://github.com/Community-Archives/Website/actions/workflows/prettier.yml)
+
 <p align="center">
    Imagine a place where you can save and share all your favorite Discord moments and memories with the world. And all it takes is a few seconds of your time!
 </p>
