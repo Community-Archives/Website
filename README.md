@@ -9,3 +9,13 @@
 <p align="center">
    Imagine a place where you can save and share all your favorite Discord moments and memories with the world. And all it takes is a few seconds of your time!
 </p>
+
+---
+
+<h2 align='center'>
+  Note
+</h2>
+
+<p align="center">
+   This website is still actively being developed 😀
+</p>
